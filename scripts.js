@@ -319,10 +319,10 @@ $(document).ready(function () {
     const pieces = $(this).val().split(',');
     if (pieces.length > 2) {
       pieces.map((p) => {
-        addToList('synonymtags', p.trim());
+        addToList('addlnamestags', p.trim());
       });
     } else {
-      addToList('synonymtags', $(this).val());
+      addToList('addlnamestags', $(this).val());
     }
     $(this).val('');
   });
@@ -375,6 +375,102 @@ $(document).ready(function () {
     $(this).val('');
   });
 
+  $('#narrowerthemes input').on('change', function () {
+    const pieces = $(this).val().split(',');
+    if (pieces.length > 2) {
+      pieces.map((p) => {
+        addToList('narrowerthemestags', p.trim());
+      });
+    } else {
+      addToList('narrowerthemestags', $(this).val());
+    }
+    $(this).val('');
+  });
+
+  $('#whoexploring input').on('change', function () {
+    const pieces = $(this).val().split(',');
+    if (pieces.length > 2) {
+      pieces.map((p) => {
+        addToList('whoexploringtags', p.trim());
+      });
+    } else {
+      addToList('whoexploringtags', $(this).val());
+    }
+    $(this).val('');
+  });
+
+  $('#jargon input').on('change', function () {
+    const pieces = $(this).val().split(',');
+    if (pieces.length > 2) {
+      pieces.map((p) => {
+        addToList('jargontags', p.trim());
+      });
+    } else {
+      addToList('jargontags', $(this).val());
+    }
+    $(this).val('');
+  });
+
+  $('#history input').on('change', function () {
+    const pieces = $(this).val().split(',');
+    if (pieces.length > 2) {
+      pieces.map((p) => {
+        addToList('historytags', p.trim());
+      });
+    } else {
+      addToList('historytags', $(this).val());
+    }
+    $(this).val('');
+  });
+
+  $('#dailyuse input').on('change', function () {
+    const pieces = $(this).val().split(',');
+    if (pieces.length > 2) {
+      pieces.map((p) => {
+        addToList('dailyusetags', p.trim());
+      });
+    } else {
+      addToList('dailyusetags', $(this).val());
+    }
+    $(this).val('');
+  });
+
+  $('#conditions input').on('change', function () {
+    const pieces = $(this).val().split(',');
+    if (pieces.length > 2) {
+      pieces.map((p) => {
+        addToList('conditionstags', p.trim());
+      });
+    } else {
+      addToList('conditionstags', $(this).val());
+    }
+    $(this).val('');
+  });
+
+  $('#whophotographed input').on('change', function () {
+    const pieces = $(this).val().split(',');
+    if (pieces.length > 2) {
+      pieces.map((p) => {
+        addToList('whophotographedtags', p.trim());
+      });
+    } else {
+      addToList('whophotographedtags', $(this).val());
+    }
+    $(this).val('');
+  });
+
+  $('#whatphotographed input').on('change', function () {
+    const pieces = $(this).val().split(',');
+    if (pieces.length > 2) {
+      pieces.map((p) => {
+        addToList('whatphotographedtags', p.trim());
+      });
+    } else {
+      addToList('whatphotographedtags', $(this).val());
+    }
+    $(this).val('');
+  });
+
   /**
    * Allows removal of an item once added.
    * Modals used to confirm deletion.
@@ -399,74 +495,10 @@ $(document).ready(function () {
   });
 
   /**
-   * Add brainstorm items to search terms when clicked.
-   * n.b. Only 4 total can be added
-   */
-  $('.tttags').on('click', '.list-item-data', function () {
-    const data = $(this).text();
-    const id = $(this).closest('.control').attr('id');
-    if ($('#searchterms .tags').length <= 3) {
-      addToSearchTerms(id, data);
-      disableTag($(this));
-    } else {
-      bulmaToast.toast({
-        message: 'Try removing some search terms first.',
-        type: 'is-danger',
-        duration: 3000,
-        position: 'center',
-        animate: { in: 'fadeIn', out: 'fadeOut' }
-      });
-    }
-  });
-
-  /**
-   * Remove search terms when delete button clicked
-   */
-  $('#searchterms').on('click', '.tags a.is-delete', function () {
-    const origid = $(this).siblings('.tag').attr('data-origid');
-    enableTag(origid);
-    $(this).closest('.control').remove();
-    updateTerms();
-  });
-
-  /**
    * Toggle menu on mobile when hamburger clicked
    */
   $('.navbar-burger').on('click', function () {
     $('.navbar-menu').toggle();
-  });
-
-  /**
-   * Stop user from completing Step 2 prior to 1 being finished.
-   */
-  $('#tt2').on('focus', function () {
-    if (!($('#tt1').val())) {
-      bulmaToast.toast({
-        message: 'Step 1 should be completed before brainstorming ideas.',
-        type: 'is-danger',
-        duration: 3000,
-        position: 'center',
-        animate: { in: 'fadeIn', out: 'fadeOut' }
-      });
-      $('#tt1').focus();
-    }
-  });
-
-  /**
-   * Stop user from completing Step 3 prior to 1 & 2 being finished.
-   */
-  $('.panel-block input').on('focus', function () {
-    const steps12Complete = ($('#tt1').val() && $('#tt2').val() !== MI_PLACEHOLDER);
-    if (!steps12Complete) {
-      bulmaToast.toast({
-        message: 'Both Steps 1 and 2 should be completed before filling out the concept cloud.',
-        type: 'is-danger',
-        duration: 3000,
-        position: 'center',
-        animate: { in: 'fadeIn', out: 'fadeOut' }
-      });
-      $(this).blur();
-    }
   });
 
   $('#savepdf').on('click', function () {
