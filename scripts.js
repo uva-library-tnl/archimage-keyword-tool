@@ -1,9 +1,16 @@
-const MI_PLACEHOLDER = 'Choose your main idea from Step 2 above';
-var synonymtagscount = 0;
-var peopletagscount = 0;
-var placetagscount = 0;
-var datetagscount = 0;
-var misctagscount = 0;
+var addlnamestagscount = 0;
+var whoassoctagscount = 0;
+var wheresitetagscount = 0;
+var themedesctagscount = 0;
+var broaderthemestagscount = 0;
+var narrowerthemestagscount = 0;
+var whoexploringtagscount = 0;
+var jargontagscount = 0;
+var historytagscount = 0;
+var dailyusetagscount = 0;
+var conditionstagscount = 0;
+var whophotographedtagscount = 0;
+var whatphotographedtagscount = 0;
 
 const $ = jQuery;
 
@@ -19,45 +26,82 @@ const initApp = () => {
   $('#tt1').val(function () {
     return getFromStorage('tt1') || null;
   });
-  $('#tt2').val(function () {
-    return getFromStorage('tt2') || null;
-  });
-  $('#mainidea').text(getFromStorage('tt2'));
-  const synonyms = getFromStorage('synonymtags');
-  if (synonyms) {
-    synonyms.map((s) => {
-      addToList('synonymtags', s);
+  const addlnames = getFromStorage('addlnamestags');
+  if (addlnames) {
+    addlnames.map((s) => {
+      addToList('addlnamestags', s);
     });
   }
-  const people = getFromStorage('peopletags');
-  if (people) {
-    people.map((s) => {
-      addToList('peopletags', s);
+  const whoassoc = getFromStorage('whoassoctags');
+  if (whoassoc) {
+    whoassoc.map((s) => {
+      addToList('whoassoctags', s);
     });
   }
-  const places = getFromStorage('placetags');
-  if (places) {
-    places.map((s) => {
-      addToList('placetags', s);
+  const wheresite = getFromStorage('wheresitetags');
+  if (wheresite) {
+    wheresite.map((s) => {
+      addToList('wheresitetags', s);
     });
   }
-  const dates = getFromStorage('datetags');
-  if (dates) {
-    dates.map((s) => {
-      addToList('datetags', s);
+  const themedesc = getFromStorage('themedesctags');
+  if (themedesc) {
+    themedesc.map((s) => {
+      addToList('themedesctags', s);
     });
   }
-  const misc = getFromStorage('misctags');
-  if (misc) {
-    misc.map((s) => {
-      addToList('misctags', s);
+  const broaderthemes = getFromStorage('broaderthemestags');
+  if (broaderthemes) {
+    broaderthemes.map((s) => {
+      addToList('broaderthemestags', s);
     });
   }
-  const terms = getFromStorage('searchterms');
-  if (terms) {
-    terms.map((s) => {
-      addToSearchTerms(s.id, s.text);
-      disableTag($('#' + s.id + ' .tag'));
+  const narrowerthemes = getFromStorage('narrowerthemestags');
+  if (narrowerthemes) {
+    narrowerthemes.map((s) => {
+      addToList('narrowerthemestags', s);
+    });
+  }
+  const whoexploring = getFromStorage('whoexploringtags');
+  if (whoexploring) {
+    whoexploring.map((s) => {
+      addToList('whoexploringtags', s);
+    });
+  }
+  const jargon = getFromStorage('jargontags');
+  if (jargon) {
+    jargon.map((s) => {
+      addToList('jargontags', s);
+    });
+  }
+  const history = getFromStorage('historytags');
+  if (history) {
+    history.map((s) => {
+      addToList('historytags', s);
+    });
+  }
+  const dailyuse = getFromStorage('dailyusetags');
+  if (dailyuse) {
+    dailyuse.map((s) => {
+      addToList('dailyusetags', s);
+    });
+  }
+  const conditions = getFromStorage('conditionstags');
+  if (conditions) {
+    conditions.map((s) => {
+      addToList('conditionstags', s);
+    });
+  }
+  const whophotographed = getFromStorage('whophotographedtags');
+  if (whophotographed) {
+    whophotographed.map((s) => {
+      addToList('whophotographedtags', s);
+    });
+  }
+  const whatphotographed = getFromStorage('whatphotographedtags');
+  if (whatphotographed) {
+    whatphotographed.map((s) => {
+      addToList('whatphotographedtags', s);
     });
   }
 };
@@ -109,20 +153,6 @@ const updateTerms = () => {
   saveToStorage('searchterms', items);
 };
 
-const createSearchTerm = (obj, data) => {
-  const template = document.querySelector('#searchterm').content.cloneNode(true);
-  const tag = template.querySelector('span');
-  tag.textContent = data;
-  tag.dataset.origid = obj;
-  return template;
-};
-
-const addToSearchTerms = (obj, data) => {
-  const template = createSearchTerm(obj, data);
-  $('#searchterms').append(template);
-  updateTerms();
-};
-
 const disableTag = (obj) => {
   obj.addClass('has-background-success-dark');
   obj.addClass('is-disabled');
@@ -133,6 +163,8 @@ const enableTag = (obj) => {
   $(`#${obj} .tag`).removeClass('is-disabled');
   $(`#${obj} .tag`).removeClass('has-background-success-dark');
 };
+
+/* ------------------------------------------------------------------------ */
 
 const prepPDF = () => {
   const sn = getFromStorage('studentname');
@@ -149,10 +181,10 @@ const createPDF = (combined = false) => {
   const tt2 = getFromStorage('tt2');
   const tt3MI = getFromStorage('tt2');
   const tt3Syn = getFromStorage('synonymtags');
-  const tt3Peo = getFromStorage('peopletags');
-  const tt3Pla = getFromStorage('placetags');
-  const tt3Dat = getFromStorage('datetags');
-  const tt3Msc = getFromStorage('misctags');
+  const tt3Peo = getFromStorage('whoassoctags');
+  const tt3Pla = getFromStorage('wheresitetags');
+  const tt3Dat = getFromStorage('themedesctags');
+  const tt3Msc = getFromStorage('broaderthemestags');
   const tt4 = getFromStorage('searchterms');
 
   if (!combined && !(tt1 && tt2 && tt3MI && tt3Syn && tt3Peo && tt3Pla && tt3Dat && tt4)) {
@@ -186,20 +218,20 @@ const createPDF = (combined = false) => {
   $('#pdf-mainidea .pdfinsert').html(`<h2>${tt3MI}</h2>`);
 
   if (!combined) {
-    $('#pdf-synonyms .pdfinsert').html(tt3Syn.map(tt => {
+    $('#pdf-addlnames .pdfinsert').html(tt3Syn.map(tt => {
       return `<span class='tag'>${tt}</span>`;
     }));
-    $('#pdf-people .pdfinsert').html(tt3Peo.map(tt => {
+    $('#pdf-whoassoc .pdfinsert').html(tt3Peo.map(tt => {
       return `<span class='tag'>${tt}</span>`;
     }));
-    $('#pdf-places .pdfinsert').html(tt3Pla.map(tt => {
+    $('#pdf-wheresite .pdfinsert').html(tt3Pla.map(tt => {
       return `<span class='tag'>${tt}</span>`;
     }));
-    $('#pdf-dates .pdfinsert').html(tt3Dat.map(tt => {
+    $('#pdf-themedesc .pdfinsert').html(tt3Dat.map(tt => {
       return `<span class='tag'>${tt}</span>`;
     }));
   }
-  $('#pdf-misc .pdfinsert').html(tt3Msc.map(tt => {
+  $('#pdf-broaderthemes .pdfinsert').html(tt3Msc.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
 
@@ -283,7 +315,7 @@ $(document).ready(function () {
     $(this).parent().siblings('.control').find('input').focus();
   });
 
-  $('#synonyms input').on('change', function () {
+  $('#addlnames input').on('change', function () {
     const pieces = $(this).val().split(',');
     if (pieces.length > 2) {
       pieces.map((p) => {
@@ -295,50 +327,50 @@ $(document).ready(function () {
     $(this).val('');
   });
 
-  $('#people input').on('change', function () {
+  $('#whoassoc input').on('change', function () {
     const pieces = $(this).val().split(',');
     if (pieces.length > 2) {
       pieces.map((p) => {
-        addToList('peopletags', p.trim());
+        addToList('whoassoctags', p.trim());
       });
     } else {
-      addToList('peopletags', $(this).val());
+      addToList('whoassoctags', $(this).val());
     }
     $(this).val('');
   });
 
-  $('#places input').on('change', function () {
+  $('#wheresite input').on('change', function () {
     const pieces = $(this).val().split(',');
     if (pieces.length > 2) {
       pieces.map((p) => {
-        addToList('placetags', p.trim());
+        addToList('wheresitetags', p.trim());
       });
     } else {
-      addToList('placetags', $(this).val());
+      addToList('wheresitetags', $(this).val());
     }
     $(this).val('');
   });
 
-  $('#dates input').on('change', function () {
+  $('#themedesc input').on('change', function () {
     const pieces = $(this).val().split(',');
     if (pieces.length > 2) {
       pieces.map((p) => {
-        addToList('datetags', p.trim());
+        addToList('themedesctags', p.trim());
       });
     } else {
-      addToList('datetags', $(this).val());
+      addToList('themedesctags', $(this).val());
     }
     $(this).val('');
   });
 
-  $('#misc input').on('change', function () {
+  $('#broaderthemes input').on('change', function () {
     const pieces = $(this).val().split(',');
     if (pieces.length > 2) {
       pieces.map((p) => {
-        addToList('misctags', p.trim());
+        addToList('broaderthemestags', p.trim());
       });
     } else {
-      addToList('misctags', $(this).val());
+      addToList('broaderthemestags', $(this).val());
     }
     $(this).val('');
   });
@@ -347,7 +379,7 @@ $(document).ready(function () {
    * Allows removal of an item once added.
    * Modals used to confirm deletion.
    */
-  $('.mi-tags, .tt-tags').on('click', '.is-delete', function () {
+  $('.mitags, .tttags').on('click', '.is-delete', function () {
     $('#removeitem-conf').attr('data-caller', $(this).closest('.control').attr('id'));
     $('html').addClass('is-clipped');
     $('#removeitem-modal').addClass('is-active');
@@ -356,7 +388,7 @@ $(document).ready(function () {
   $('#removeitem-conf').on('click', function () {
     const id = $(this).attr('data-caller');
     const tagGroup = $('#' + id);
-    const parent = $(tagGroup).closest('.mi-tags, .tt-tags').attr('id');
+    const parent = $(tagGroup).closest('.mitags, .tttags').attr('id');
     $(tagGroup).remove();
     updateList(parent);
     closeRemoveItemModal();
@@ -370,7 +402,7 @@ $(document).ready(function () {
    * Add brainstorm items to search terms when clicked.
    * n.b. Only 4 total can be added
    */
-  $('.tt-tags').on('click', '.list-item-data', function () {
+  $('.tttags').on('click', '.list-item-data', function () {
     const data = $(this).text();
     const id = $(this).closest('.control').attr('id');
     if ($('#searchterms .tags').length <= 3) {

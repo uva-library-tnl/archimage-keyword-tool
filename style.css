@@ -6,6 +6,20 @@ html {
   justify-content: center;
 }
 
+.container {
+  border: 2px solid #eee;
+  padding: 0 1em 1em;
+}
+
+.container > .title {
+  position: relative;
+  top: -20px;
+  background: white;
+  display: inline-block;
+  padding: 0 1rem;
+  text-transform: uppercase;
+}
+
 .field.has-addons {
   flex: 1;
 }
