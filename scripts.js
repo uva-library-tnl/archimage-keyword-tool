@@ -177,35 +177,40 @@ const prepPDF = () => {
 };
 
 const createPDF = (combined = false) => {
-  const tt1 = getFromStorage('tt1');
-  const tt2 = getFromStorage('tt2');
-  const tt3MI = getFromStorage('tt2');
-  const tt3Syn = getFromStorage('synonymtags');
-  const tt3Peo = getFromStorage('whoassoctags');
-  const tt3Pla = getFromStorage('wheresitetags');
-  const tt3Dat = getFromStorage('themedesctags');
-  const tt3Msc = getFromStorage('broaderthemestags');
-  const tt4 = getFromStorage('searchterms');
+  const tt1a = getFromStorage('tt1');
+  const tt1b = getFromStorage('synonymtags');
+  const tt1c = getFromStorage('whoassoctags');
+  const tt1d = getFromStorage('wheresitetags');
+  const tt2a = getFromStorage('themedesctags');
+  const tt2b = getFromStorage('broaderthemestags');
+  const tt2c = getFromStorage('narrowerthemestags');
+  const tt2d = getFromStorage('whoexploringtags');
+  const tt2e = getFromStorage('jargontags');
+  const tt3a = getFromStorage('historytags');
+  const tt3b = getFromStorage('dailyusetags');
+  const tt3c = getFromStorage('conditionstags');
+  const tt3d = getFromStorage('whophotographedtags');
+  const tt3e = getFromStorage('whatphotographedtags');
 
-  if (!combined && !(tt1 && tt2 && tt3MI && tt3Syn && tt3Peo && tt3Pla && tt3Dat && tt4)) {
-    bulmaToast.toast({
-      message: "You haven't completed all the steps.",
-      type: 'is-danger',
-      duration: 3000,
-      position: 'center',
-      animate: { in: 'fadeIn', out: 'fadeOut' }
-    });
-    return;
-  } else if (!(tt1 && tt2 && tt3Msc && tt4)) { // combined version
-    bulmaToast.toast({
-      message: "You haven't completed all the steps.",
-      type: 'is-danger',
-      duration: 3000,
-      position: 'center',
-      animate: { in: 'fadeIn', out: 'fadeOut' }
-    });
-    return;
-  }
+  // if (!combined && !(tt1 && tt2 && tt3MI && tt3Syn && tt3Peo && tt3Pla && tt3Dat && tt4)) {
+  //   bulmaToast.toast({
+  //     message: "You haven't completed all the steps.",
+  //     type: 'is-danger',
+  //     duration: 3000,
+  //     position: 'center',
+  //     animate: { in: 'fadeIn', out: 'fadeOut' }
+  //   });
+  //   return;
+  // } else if (!(tt1 && tt2 && tt3Msc && tt4)) { // combined version
+  //   bulmaToast.toast({
+  //     message: "You haven't completed all the steps.",
+  //     type: 'is-danger',
+  //     duration: 3000,
+  //     position: 'center',
+  //     animate: { in: 'fadeIn', out: 'fadeOut' }
+  //   });
+  //   return;
+  // }
 
   const sn = getFromStorage('studentname');
   const cn = getFromStorage('coursename');
@@ -213,36 +218,54 @@ const createPDF = (combined = false) => {
   $('#studentname').text(sn || '');
   $('#coursename').text(cn || '');
 
-  $('#pdf1 .pdfinsert').html(tt1);
-  $('#pdf2 .pdfinsert').text(tt2);
-  $('#pdf-mainidea .pdfinsert').html(`<h2>${tt3MI}</h2>`);
+  $('#pdf-tt1 .pdfinsert').html(tt1a);
 
-  if (!combined) {
-    $('#pdf-addlnames .pdfinsert').html(tt3Syn.map(tt => {
-      return `<span class='tag'>${tt}</span>`;
-    }));
-    $('#pdf-whoassoc .pdfinsert').html(tt3Peo.map(tt => {
-      return `<span class='tag'>${tt}</span>`;
-    }));
-    $('#pdf-wheresite .pdfinsert').html(tt3Pla.map(tt => {
-      return `<span class='tag'>${tt}</span>`;
-    }));
-    $('#pdf-themedesc .pdfinsert').html(tt3Dat.map(tt => {
-      return `<span class='tag'>${tt}</span>`;
-    }));
-  }
-  $('#pdf-broaderthemes .pdfinsert').html(tt3Msc.map(tt => {
+  // if (!combined) {
+  $('#pdf-addlnames .pdfinsert').html(tt1b.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-
-  $('#pdf4 .pdfinsert').html(tt4.map(st => st.text).map(tt => {
+  $('#pdf-whoassoc .pdfinsert').html(tt1c.map(tt => {
+    return `<span class='tag'>${tt}</span>`;
+  }));
+  $('#pdf-wheresite .pdfinsert').html(tt1d.map(tt => {
+    return `<span class='tag'>${tt}</span>`;
+  }));
+  $('#pdf-themedesc .pdfinsert').html(tt2a.map(tt => {
+    return `<span class='tag'>${tt}</span>`;
+  }));
+  // }
+  $('#pdf-broaderthemes .pdfinsert').html(tt2b.map(tt => {
+    return `<span class='tag'>${tt}</span>`;
+  }));
+  $('#pdf-narrowerthemes .pdfinsert').html(tt2c.map(tt => {
+    return `<span class='tag'>${tt}</span>`;
+  }));
+  $('#pdf-whoexploring .pdfinsert').html(tt2d.map(tt => {
+    return `<span class='tag'>${tt}</span>`;
+  }));
+  $('#pdf-jargon .pdfinsert').html(tt2e.map(tt => {
+    return `<span class='tag'>${tt}</span>`;
+  }));
+  $('#pdf-history .pdfinsert').html(tt3a.map(tt => {
+    return `<span class='tag'>${tt}</span>`;
+  }));
+  $('#pdf-dailyuse .pdfinsert').html(tt3b.map(tt => {
+    return `<span class='tag'>${tt}</span>`;
+  }));
+  $('#pdf-conditions .pdfinsert').html(tt3c.map(tt => {
+    return `<span class='tag'>${tt}</span>`;
+  }));
+  $('#pdf-whophotographed .pdfinsert').html(tt3d.map(tt => {
+    return `<span class='tag'>${tt}</span>`;
+  }));
+  $('#pdf-whatphotographed .pdfinsert').html(tt3e.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
 
   const element = document.getElementById('pdf');
   var opt = {
     margin: 0,
-    filename: 'thinkingtool.pdf',
+    filename: 'arch-keyword-tool.pdf',
     image: { type: 'jpeg', quality: 1 },
     html2canvas: { scale: 2 },
     jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
@@ -273,14 +296,6 @@ $(document).ready(function () {
    */
   $('#tt1').on('input', function () {
     saveToStorage('tt1', $(this).val());
-  });
-
-  /**
-   * Set main idea in cloud from step 2 and save to storage
-   */
-  $('#tt2').on('input', function () {
-    $('#mainidea').text($(this).val());
-    saveToStorage('tt2', $(this).val());
   });
 
   /**

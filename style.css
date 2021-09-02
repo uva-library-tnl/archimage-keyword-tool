@@ -6,7 +6,7 @@ html {
   justify-content: center;
 }
 
-section.container {
+section.container:not(:last-of-type) {
   border: 2px solid #eee;
   padding: 0 1em 1em;
   margin-bottom: 4em;
