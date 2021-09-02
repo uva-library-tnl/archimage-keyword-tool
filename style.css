@@ -75,6 +75,10 @@ section.container > .title {
   display: none;
 }
 
+#pdf1, #pdf2 {
+  margin-top: .25in;
+}
+
 #pdfinfo {
   margin-bottom: .1in;
   padding-bottom: .1in;
@@ -152,33 +156,24 @@ section.container > .title {
   min-height: 5in !important;
 }
 
-#pdf-mainidea {
-  width: 50%;
-  margin: .15in auto;
-}
-
 #pdf .tags {
   padding-top: .05in;
 }
 
-#pdf1 .pdfinsert {
+/* #pdf1 .pdfinsert {
   padding-left: .5in;
   font-size: 12pt;
-}
+} */
 
-#pdf3 .tags {
+/* #pdf3 .tags {
   padding-left: .1in;
   align-items: unset;
-}
+} */
 
-#pdf-mainidea .pdfinsert {
-  padding: .125in;
-}
-
-#pdf1 .tags, #pdf2 .tags, #pdf4 .tags {
+/* #pdf1 .tags, #pdf2 .tags, #pdf4 .tags {
   margin-left: .5in;
 }
 
 #pdf1 h2, #pdf2 h2, #pdf4 h2 {
   margin-left: .5in;
-}
+} */
