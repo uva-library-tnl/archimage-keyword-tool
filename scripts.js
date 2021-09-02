@@ -5,7 +5,6 @@ var themedesctagscount = 0;
 var broaderthemestagscount = 0;
 var narrowerthemestagscount = 0;
 var whoexploringtagscount = 0;
-var jargontagscount = 0;
 var historytagscount = 0;
 var dailyusetagscount = 0;
 var conditionstagscount = 0;
@@ -66,12 +65,6 @@ const initApp = () => {
   if (whoexploring) {
     whoexploring.map((s) => {
       addToList('whoexploringtags', s);
-    });
-  }
-  const jargon = getFromStorage('jargontags');
-  if (jargon) {
-    jargon.map((s) => {
-      addToList('jargontags', s);
     });
   }
   const history = getFromStorage('historytags');
@@ -185,7 +178,6 @@ const createPDF = (combined = false) => {
   const tt2b = getFromStorage('broaderthemestags');
   const tt2c = getFromStorage('narrowerthemestags');
   const tt2d = getFromStorage('whoexploringtags');
-  const tt2e = getFromStorage('jargontags');
   const tt3a = getFromStorage('historytags');
   const tt3b = getFromStorage('dailyusetags');
   const tt3c = getFromStorage('conditionstags');
@@ -239,9 +231,6 @@ const createPDF = (combined = false) => {
     return `<span class='tag'>${tt}</span>`;
   }));
   tt2d && $('#pdf-whoexploring .pdfinsert').html(tt2d.map(tt => {
-    return `<span class='tag'>${tt}</span>`;
-  }));
-  tt2e && $('#pdf-jargon .pdfinsert').html(tt2e.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
   tt3a && $('#pdf-history .pdfinsert').html(tt3a.map(tt => {
@@ -408,18 +397,6 @@ $(document).ready(function () {
       });
     } else {
       addToList('whoexploringtags', $(this).val());
-    }
-    $(this).val('');
-  });
-
-  $('#jargon input').on('change', function () {
-    const pieces = $(this).val().split(',');
-    if (pieces.length > 2) {
-      pieces.map((p) => {
-        addToList('jargontags', p.trim());
-      });
-    } else {
-      addToList('jargontags', $(this).val());
     }
     $(this).val('');
   });
