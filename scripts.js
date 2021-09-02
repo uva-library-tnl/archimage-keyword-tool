@@ -218,47 +218,45 @@ const createPDF = (combined = false) => {
   $('#studentname').text(sn || '');
   $('#coursename').text(cn || '');
 
-  $('#pdf-tt1 .pdfinsert').html(tt1a);
+  tt1a && $('#pdf-tt1 .pdfinsert').html(tt1a);
 
-  // if (!combined) {
   tt1b && $('#pdf-addlnames .pdfinsert').html(tt1b.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-  $('#pdf-whoassoc .pdfinsert').html(tt1c.map(tt => {
+  tt1c && $('#pdf-whoassoc .pdfinsert').html(tt1c.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-  $('#pdf-wheresite .pdfinsert').html(tt1d.map(tt => {
+  tt1d && $('#pdf-wheresite .pdfinsert').html(tt1d.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-  $('#pdf-themedesc .pdfinsert').html(tt2a.map(tt => {
+  tt2a && $('#pdf-themedesc .pdfinsert').html(tt2a.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-  // }
-  $('#pdf-broaderthemes .pdfinsert').html(tt2b.map(tt => {
+  tt2b && $('#pdf-broaderthemes .pdfinsert').html(tt2b.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-  $('#pdf-narrowerthemes .pdfinsert').html(tt2c.map(tt => {
+  tt2c && $('#pdf-narrowerthemes .pdfinsert').html(tt2c.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-  $('#pdf-whoexploring .pdfinsert').html(tt2d.map(tt => {
+  tt2d && $('#pdf-whoexploring .pdfinsert').html(tt2d.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-  $('#pdf-jargon .pdfinsert').html(tt2e.map(tt => {
+  tt2e && $('#pdf-jargon .pdfinsert').html(tt2e.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-  $('#pdf-history .pdfinsert').html(tt3a.map(tt => {
+  tt3a && $('#pdf-history .pdfinsert').html(tt3a.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-  $('#pdf-dailyuse .pdfinsert').html(tt3b.map(tt => {
+  tt3b && $('#pdf-dailyuse .pdfinsert').html(tt3b.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-  $('#pdf-conditions .pdfinsert').html(tt3c.map(tt => {
+  tt3c && $('#pdf-conditions .pdfinsert').html(tt3c.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-  $('#pdf-whophotographed .pdfinsert').html(tt3d.map(tt => {
+  tt3d && $('#pdf-whophotographed .pdfinsert').html(tt3d.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
-  $('#pdf-whatphotographed .pdfinsert').html(tt3e.map(tt => {
+  tt3e && $('#pdf-whatphotographed .pdfinsert').html(tt3e.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
 
