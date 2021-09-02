@@ -76,7 +76,7 @@ section.container > .title {
 }
 
 #pdf1, #pdf2 {
-  margin-top: .25in;
+  margin-top: .5in;
 }
 
 #pdfinfo {
@@ -113,7 +113,7 @@ section.container > .title {
   width: 100%;
 }
 
-#pdf3 header {
+.pdfblock header {
   text-align: center;
 }
 
