@@ -178,7 +178,7 @@ const prepPDF = () => {
 
 const createPDF = (combined = false) => {
   const tt1a = getFromStorage('tt1');
-  const tt1b = getFromStorage('synonymtags');
+  const tt1b = getFromStorage('addlnamestags');
   const tt1c = getFromStorage('whoassoctags');
   const tt1d = getFromStorage('wheresitetags');
   const tt2a = getFromStorage('themedesctags');
