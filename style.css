@@ -106,7 +106,7 @@ section.container > .title {
 }
 
 .pdfblock .pdfrow .pdfblock > div {
-  min-height: 1in;
+  min-height: .75in;
 }
 
 .pdfrow > div {
@@ -139,6 +139,7 @@ section.container > .title {
 
 .pdfrow h3 {
   font-weight: bold;
+  font-size: 10pt;
 }
 
 .pdfblock > p {
