@@ -221,7 +221,7 @@ const createPDF = (combined = false) => {
   $('#pdf-tt1 .pdfinsert').html(tt1a);
 
   // if (!combined) {
-  $('#pdf-addlnames .pdfinsert').html(tt1b.map(tt => {
+  tt1b && $('#pdf-addlnames .pdfinsert').html(tt1b.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
   $('#pdf-whoassoc .pdfinsert').html(tt1c.map(tt => {
