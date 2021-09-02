@@ -475,7 +475,7 @@ $(document).ready(function () {
    * Allows removal of an item once added.
    * Modals used to confirm deletion.
    */
-  $('.mitags, .tttags').on('click', '.is-delete', function () {
+  $('.mi-tags, .tt-tags').on('click', '.is-delete', function () {
     $('#removeitem-conf').attr('data-caller', $(this).closest('.control').attr('id'));
     $('html').addClass('is-clipped');
     $('#removeitem-modal').addClass('is-active');
