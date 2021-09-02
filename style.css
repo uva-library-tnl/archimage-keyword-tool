@@ -158,6 +158,7 @@ section.container > .title {
 
 #pdf .tags {
   padding-top: .05in;
+  padding-left: .05in;
 }
 
 /* #pdf1 .pdfinsert {
