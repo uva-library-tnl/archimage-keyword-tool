@@ -1,10 +1,3 @@
-var addlnamestagscount = 0;
-var whoassoctagscount = 0;
-var wheresitetagscount = 0;
-var themedesctagscount = 0;
-var broaderthemestagscount = 0;
-var narrowerthemestagscount = 0;
-var whoexploringtagscount = 0;
 var historytagscount = 0;
 var dailyusetagscount = 0;
 var conditionstagscount = 0;
@@ -25,48 +18,6 @@ const initApp = () => {
   $('#tt1').val(function () {
     return getFromStorage('tt1') || null;
   });
-  const addlnames = getFromStorage('addlnamestags');
-  if (addlnames) {
-    addlnames.map((s) => {
-      addToList('addlnamestags', s);
-    });
-  }
-  const whoassoc = getFromStorage('whoassoctags');
-  if (whoassoc) {
-    whoassoc.map((s) => {
-      addToList('whoassoctags', s);
-    });
-  }
-  const wheresite = getFromStorage('wheresitetags');
-  if (wheresite) {
-    wheresite.map((s) => {
-      addToList('wheresitetags', s);
-    });
-  }
-  const themedesc = getFromStorage('themedesctags');
-  if (themedesc) {
-    themedesc.map((s) => {
-      addToList('themedesctags', s);
-    });
-  }
-  const broaderthemes = getFromStorage('broaderthemestags');
-  if (broaderthemes) {
-    broaderthemes.map((s) => {
-      addToList('broaderthemestags', s);
-    });
-  }
-  const narrowerthemes = getFromStorage('narrowerthemestags');
-  if (narrowerthemes) {
-    narrowerthemes.map((s) => {
-      addToList('narrowerthemestags', s);
-    });
-  }
-  const whoexploring = getFromStorage('whoexploringtags');
-  if (whoexploring) {
-    whoexploring.map((s) => {
-      addToList('whoexploringtags', s);
-    });
-  }
   const history = getFromStorage('historytags');
   if (history) {
     history.map((s) => {
@@ -170,14 +121,6 @@ const prepPDF = () => {
 };
 
 const createPDF = (combined = false) => {
-  const tt1a = getFromStorage('tt1');
-  const tt1b = getFromStorage('addlnamestags');
-  const tt1c = getFromStorage('whoassoctags');
-  const tt1d = getFromStorage('wheresitetags');
-  const tt2a = getFromStorage('themedesctags');
-  const tt2b = getFromStorage('broaderthemestags');
-  const tt2c = getFromStorage('narrowerthemestags');
-  const tt2d = getFromStorage('whoexploringtags');
   const tt3a = getFromStorage('historytags');
   const tt3b = getFromStorage('dailyusetags');
   const tt3c = getFromStorage('conditionstags');
@@ -210,29 +153,6 @@ const createPDF = (combined = false) => {
   $('#studentname').text(sn || '');
   $('#coursename').text(cn || '');
 
-  tt1a && $('#pdf-tt1 .pdfinsert').html(tt1a);
-
-  tt1b && $('#pdf-addlnames .pdfinsert').html(tt1b.map(tt => {
-    return `<span class='tag'>${tt}</span>`;
-  }));
-  tt1c && $('#pdf-whoassoc .pdfinsert').html(tt1c.map(tt => {
-    return `<span class='tag'>${tt}</span>`;
-  }));
-  tt1d && $('#pdf-wheresite .pdfinsert').html(tt1d.map(tt => {
-    return `<span class='tag'>${tt}</span>`;
-  }));
-  tt2a && $('#pdf-themedesc .pdfinsert').html(tt2a.map(tt => {
-    return `<span class='tag'>${tt}</span>`;
-  }));
-  tt2b && $('#pdf-broaderthemes .pdfinsert').html(tt2b.map(tt => {
-    return `<span class='tag'>${tt}</span>`;
-  }));
-  tt2c && $('#pdf-narrowerthemes .pdfinsert').html(tt2c.map(tt => {
-    return `<span class='tag'>${tt}</span>`;
-  }));
-  tt2d && $('#pdf-whoexploring .pdfinsert').html(tt2d.map(tt => {
-    return `<span class='tag'>${tt}</span>`;
-  }));
   tt3a && $('#pdf-history .pdfinsert').html(tt3a.map(tt => {
     return `<span class='tag'>${tt}</span>`;
   }));
@@ -252,7 +172,7 @@ const createPDF = (combined = false) => {
   const element = document.getElementById('pdf');
   var opt = {
     margin: 0,
-    filename: 'arch-keyword-tool.pdf',
+    filename: 'archimage-keyword-tool.pdf',
     image: { type: 'jpeg', quality: 1 },
     html2canvas: { scale: 2 },
     jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
@@ -281,9 +201,9 @@ $(document).ready(function () {
   /**
    * Save assignment info to storage
    */
-  $('#tt1').on('input', function () {
-    saveToStorage('tt1', $(this).val());
-  });
+  // $('#tt1').on('input', function () {
+  //   saveToStorage('tt1', $(this).val());
+  // });
 
   /**
    * React to start over button being clicked. Pop up warning.
@@ -315,90 +235,6 @@ $(document).ready(function () {
 
   $('.field.has-addons .control .button').on('click', function () {
     $(this).parent().siblings('.control').find('input').focus();
-  });
-
-  $('#addlnames input').on('change', function () {
-    const pieces = $(this).val().split(',');
-    if (pieces.length > 2) {
-      pieces.map((p) => {
-        addToList('addlnamestags', p.trim());
-      });
-    } else {
-      addToList('addlnamestags', $(this).val());
-    }
-    $(this).val('');
-  });
-
-  $('#whoassoc input').on('change', function () {
-    const pieces = $(this).val().split(',');
-    if (pieces.length > 2) {
-      pieces.map((p) => {
-        addToList('whoassoctags', p.trim());
-      });
-    } else {
-      addToList('whoassoctags', $(this).val());
-    }
-    $(this).val('');
-  });
-
-  $('#wheresite input').on('change', function () {
-    const pieces = $(this).val().split(',');
-    if (pieces.length > 2) {
-      pieces.map((p) => {
-        addToList('wheresitetags', p.trim());
-      });
-    } else {
-      addToList('wheresitetags', $(this).val());
-    }
-    $(this).val('');
-  });
-
-  $('#themedesc input').on('change', function () {
-    const pieces = $(this).val().split(',');
-    if (pieces.length > 2) {
-      pieces.map((p) => {
-        addToList('themedesctags', p.trim());
-      });
-    } else {
-      addToList('themedesctags', $(this).val());
-    }
-    $(this).val('');
-  });
-
-  $('#broaderthemes input').on('change', function () {
-    const pieces = $(this).val().split(',');
-    if (pieces.length > 2) {
-      pieces.map((p) => {
-        addToList('broaderthemestags', p.trim());
-      });
-    } else {
-      addToList('broaderthemestags', $(this).val());
-    }
-    $(this).val('');
-  });
-
-  $('#narrowerthemes input').on('change', function () {
-    const pieces = $(this).val().split(',');
-    if (pieces.length > 2) {
-      pieces.map((p) => {
-        addToList('narrowerthemestags', p.trim());
-      });
-    } else {
-      addToList('narrowerthemestags', $(this).val());
-    }
-    $(this).val('');
-  });
-
-  $('#whoexploring input').on('change', function () {
-    const pieces = $(this).val().split(',');
-    if (pieces.length > 2) {
-      pieces.map((p) => {
-        addToList('whoexploringtags', p.trim());
-      });
-    } else {
-      addToList('whoexploringtags', $(this).val());
-    }
-    $(this).val('');
   });
 
   $('#history input').on('change', function () {

@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <link rel="stylesheet" href="static/animate.min.css">
   <link rel="stylesheet" href="style.css">
-  <title>UVA Library Online Architecture Keyword Tool</title>
+  <title>UVA Library Online Architecture Image Keyword Tool</title>
 </head>
 <body>
   <header>
@@ -32,185 +32,12 @@
     <section class="hero">
       <div class="hero-body">
         <div class="container">
-          <h1 class="title is-size-1">Architecture Keyword Tool</h1>
-          <h2 class="subtitle is-size-4">Your research for this paper will bring together three components<ol><li>A site</li><li>Themes and concepts that interest you about that site</li><li>Images as evidence</li></ol>Let's spend some time exploring the ways we can turn those into search terms or keywords that will help you explore and dive deeper.</h2>
+          <h1 class="title is-size-1">Architecture Image Keyword Tool</h1>
+          <h2 class="subtitle is-size-4">This tool focuses solely on images in your research as part of a larger paper in which you're considering three components<ol><li>A site</li><li>Themes and concepts that interest you about that site</li><li>Images as evidence</li></ol>Let's spend some time exploring the ways we can turn those into search terms or keywords that will help you explore and dive deeper.  The full tool can be found at: <a href="https://uva-library-tnl.github.io/arch-keyword-tool">https://uva-library-tnl.github.io/arch-keyword-tool</a></h2>
           <div class="message is-info">
             <p class="message-body">
               Information you enter below will automatically save in your web browser.  You can also save a PDF version to your computer or device.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="container">
-      <span class="title">Site</span>
-      <div class="tile is-ancestor">
-        <section class="tile is-parent">
-          <div class="tile is-child box">
-            <p class="subtitle">What is the name of your site?</p>
-            <div class="content">
-              <p>(Building, landscape, etc.)</p>
-              <textarea class="textarea" name="tt1" id="tt1" placeholder="Enter the name of your site"></textarea>
-            </div>
-          </div>
-        </section>
-        <section class="tile is-parent">
-          <div class="tile is-child box" id="addlnames">
-            <p class="panel-heading">What are possible additional names for the site?</p>
-            <div class="panel-block">
-              <p>Is there another name in a different language?  What is the street address (if known)?  Has it ever had a different name (Some sites are named after their owner like the AT&amp;T Building or have honorary names that change over time like the "John Johnson Art Center")?  Is it part of a complex or larger site or project?  Does it have smaller components with names of their own?</p>
-            </div>
-            <div class="panel-block">
-              <div class="field has-addons">
-                <div class="control">
-                  <input type="text" class="input" placeholder="Enter a word or phrase to add">
-                </div>
-                <div class="control">
-                  <a class="button is-info">Add</a>
-                </div>
-              </div>
-            </div>
-            <div class="panel-block">
-              <div class="tt-tags field is-grouped is-grouped-multiline" id="addlnamestags">
-              </div>
-            </div>        
-          </div>
-        </section>
-      </div>
-      <div class="tile is-ancestor">
-        <div class="tile is-parent">
-          <div class="tile is-child panel" id="whoassoc">
-            <p class="panel-heading">Who is associated with the site?</p>
-            <div class="panel-block">
-              <p>Think about: Architect, Engineer, Construction firm, Landscape Architect, Donors/Sponsors/Funders</p>
-            </div>
-            <div class="panel-block">
-              <div class="field has-addons">
-                <div class="control">
-                  <input type="text" class="input" placeholder="Enter a word or phrase to add">
-                </div>
-                <div class="control">
-                  <a class="button is-info">Add</a>
-                </div>
-              </div>
-            </div>
-            <div class="panel-block">
-              <div class="tt-tags field is-grouped is-grouped-multiline" id="whoassoctags">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tile is-parent">
-          <div class="tile is-child panel" id="wheresite">
-            <p class="panel-heading">Where is the site?</p>
-            <div class="panel-block">
-              <p>City and country? Are there other ways to express this place? A region, neighborhood, etc? A different spelling for the city in its own language?</p>
-            </div>
-            <div class="panel-block">
-              <div class="field has-addons">
-                <div class="control">
-                  <input type="text" class="input" placeholder="Enter a word or phrase to add">
-                </div>
-                <div class="control">
-                  <a class="button is-info">Add</a>
-                </div>
-              </div>
-            </div>
-            <div class="panel-block">
-              <div class="tt-tags field is-grouped is-grouped-multiline" id="wheresitetags">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="container">
-      <site class="title">Theme(s)</site>
-      <div class="tile is-ancestor">
-        <div class="tile is-parent">
-          <div class="tile is-child panel" id="themedesc">
-            <p class="panel-heading">What are some words that describe the theme or aspect you're interested in?</p>
-            <div class="panel-block">
-              <div class="field has-addons">
-                <div class="control">
-                  <input type="text" class="input" placeholder="Enter a word or phrase to add">
-                </div>
-                <div class="control">
-                  <a class="button is-info">Add</a>
-                </div>
-              </div>
-            </div>
-            <div class="panel-block">
-              <div class="tt-tags field is-grouped is-grouped-multiline" id="themedesctags">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tile is-parent">
-          <div class="tile is-child panel" id="broaderthemes">
-            <p class="panel-heading">What are some broader terms for these concepts?</p>
-            <div class="panel-block">
-              <div class="field has-addons">
-                <div class="control">
-                  <input type="text" class="input" placeholder="Enter a word or phrase to add">
-                </div>
-                <div class="control">
-                  <a class="button is-info">Add</a>
-                </div>
-              </div>
-            </div>
-            <div class="panel-block">
-              <div class="tt-tags field is-grouped is-grouped-multiline" id="broaderthemestags">
-
-              </div>        
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="tile is-ancestor">
-        <div class="tile is-parent">
-          <div class="tile is-child panel" id="narrowerthemes">
-            <p class="panel-heading">What are some narrower terms that would fall into those concepts?</p>
-            <div class="panel-block">
-              <div class="field has-addons">
-                <div class="control">
-                  <input type="text" class="input" placeholder="Enter a word or phrase to add">
-                </div>
-                <div class="control">
-                  <a class="button is-info">Add</a>
-                </div>
-              </div>
-            </div>
-            <div class="panel-block">
-              <div class="tt-tags field is-grouped is-grouped-multiline" id="narrowerthemestags">
-
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="tile is-parent">
-          <div class="tile is-child panel" id="whoexploring">
-            <p class="panel-heading">Think about who else would be exploring these issues and writing about them.</p>
-            <div class="panel-block">
-              <p>What words would you expect those people to use? Scholars in another discipline? Local residents or people with lived experience?  Brainstorm the scholarly jargon and/or colloquial language that express your concepts.</p>
-            </div>
-            <div class="panel-block">
-              <div class="field has-addons">
-                <div class="control">
-                  <input type="text" class="input" placeholder="Enter a word or phrase to add">
-                </div>
-                <div class="control">
-                  <a class="button is-info">Add</a>
-                </div>
-              </div>
-            </div>
-            <div class="panel-block">
-              <div class="tt-tags field is-grouped is-grouped-multiline" id="whoexploringtags">
-
-              </div>        
-            </div>
           </div>
         </div>
       </div>
@@ -349,10 +176,10 @@
           <div class="tile is-child box">
             <h2 class="subtitle is-size-4">So...what now?</h2>
             <div class="content">
-              <p>Now the exploration begins! As you search for text resources, combine words from your <strong>SITE</strong> and <strong>THEMES</strong> breakdowns.</p>
+              <p>Now the exploration begins! As you search for text resources, combine words from your <strong>IMAGES</strong> breakdowns above.</p>
               <p>Finding too much? ADD terms (like a city or architect), or use NARROWER terms (like a more precise concept) in your search.</p>
               <p>Finding too little? Change it up. Consider where you're searching. Are you using the right jargon for that space? Are you using very precise terms when searching a resource that only has brief summaries of books and articles?</p> 
-              <p>For images, combine terms for your <strong>SITE</strong> with some of the words you brainstormed when thinking about <strong>IMAGES</strong>. Keep in mind that not all images will show up in an "image search" &mdash; some will be tucked inside the text resources you find.</p>
+              <p>Keep in mind that not all images will show up in an "image search" &mdash; some will be tucked inside the text resources you find.</p>
               <p>And remember, the goal isn't to find "the answer" &mdash; it's to find relevant information and evidence. Your work will be to assemble that into an argument for your paper!</p>
             </div>
           </div>
@@ -403,7 +230,7 @@
   </main>
   <footer class="footer">
     <div class="content has-text-centered">
-      <p>The Architecture Keyword Tool was created by Rebecca Coleman, Research Librarian for Architecture.<br>It was adapted for the web by Bethany Mickel, Instructional Design Librarian.</p>
+      <p>The Architecture Image Keyword Tool was created by Rebecca Coleman, Research Librarian for Architecture.<br>It was adapted for the web by Bethany Mickel, Instructional Design Librarian.</p>
       <p>
         The website content is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
       </p>
@@ -499,61 +326,6 @@
     </div>
     <h1>Architecture Keyword Tool: Brainstorming Search Terms</h1>
 
-    <div id="pdf1" class="pdfblock">
-      <div>
-        <header>
-          <h2>SITE</h2>
-        </header>
-        <div class="pdfrow">
-          <div id="pdf-tt1" class="pdfblock">
-            <h3>What is the name of your site?</h3>
-            <div class="pdfinsert tags"></div>
-          </div>
-          <div id="pdf-addlnames" class="pdfblock">
-            <h3>What are possible additional names for the site?</h3>
-            <div class="pdfinsert tags"></div>
-          </div>
-        </div>
-        <div class="pdfrow">
-          <div id="pdf-whoassoc" class="pdfblock">
-            <h3>Who is associated with the site?</h3>
-            <div class="pdfinsert tags"></div>
-          </div>
-          <div id="pdf-wheresite" class="pdfblock">
-            <h3>Where is the site?</h3>
-            <div class="pdfinsert tags"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="pdf2" class="pdfblock">
-      <div>
-        <header>
-          <h2>THEMES</h2>
-        </header>
-        <div class="pdfrow">
-          <div id="pdf-themedesc" class="pdfblock">
-            <h3>What are some words that describe the theme or aspect you're interested in?</h3>
-            <div class="pdfinsert tags"></div>
-          </div>
-          <div id="pdf-broaderthemes" class="pdfblock">
-            <h3>What are some broader terms for these concepts?</h3>
-            <div class="pdfinsert tags"></div>
-          </div>
-        </div>
-        <div class="pdfrow">
-          <div id="pdf-narrowerthemes" class="pdfblock">
-            <h3>What are some narrower terms that would fall into those concepts?</h3>
-            <div class="pdfinsert tags"></div>
-          </div>
-          <div id="pdf-whoexploring" class="pdfblock">
-            <h3>Think about who else would be exploring these issues and writing about them.</h3>
-            <div class="pdfinsert tags"></div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div id="pdf3" class="pdfblock">
       <div>
         <header>
